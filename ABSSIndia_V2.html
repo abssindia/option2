@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ABSS India — Cultural Olympiad | UNESCO Partner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #fff;
+      color: #1A1A1A;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    .lora { font-family: 'Lora', serif; }
+
+    /* ── SCROLL REVEAL ── */
+    .sr { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
+    .sr.in { opacity: 1; transform: translateY(0); }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 1240px; margin: 0 auto; padding: 0 48px; }
+
+    /* ── TAG ── */
+    .tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+    }
+    .tag::before { content: ''; width: 20px; height: 2px; background: currentColor; border-radius: 2px; }
+    .tag-green  { color: #2D6A4F; }
+    .tag-saffron{ color: #D4621A; }
+
+    /* ══════════════════════════════════════
+       NAVIGATION
+    ══════════════════════════════════════ */
+    .nav-wrap {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid #EDE9E2;
+      transition: box-shadow .3s;
+    }
+    .nav-wrap.elevated { box-shadow: 0 4px 32px rgba(27,67,50,0.09); }
+    .nav-inner {
+      max-width: 1240px; margin: 0 auto; padding: 0 48px;
+      height: 72px; display: flex; align-items: center;
+      justify-content: space-between; gap: 24px;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 13px; text-decoration: none; }
+    .nav-logo-mark {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: linear-gradient(135deg, #1B4332 0%, #40916C 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lora', serif; font-size: 20px; font-weight: 700;
+      color: #fff; flex-shrink: 0;
+    }
+    .nav-brand-name { font-family: 'Lora', serif; font-size: 15px; font-weight: 700; color: #1B4332; line-height: 1.15; }
+    .nav-brand-sub  { font-size: 9px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #D4621A; }
+    .nav-unesco {
+      display: flex; align-items: center; gap: 7px;
+      background: #EAF4EE; border: 1px solid #D8EDE2;
+      border-radius: 100px; padding: 5px 13px; flex-shrink: 0;
+    }
+    .nav-unesco-dot { width: 6px; height: 6px; border-radius: 50%; background: #2D6A4F; }
+    .nav-unesco span { font-size: 9.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #2D6A4F; }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a {
+      font-size: 13px; font-weight: 500; color: #3D3D3D;
+      text-decoration: none; padding: 6px 11px; border-radius: 8px; transition: all .2s;
+    }
+    .nav-links a:hover { color: #1B4332; background: #EAF4EE; }
+    .nav-login {
+      background: #1B4332; color: #fff; border: none; border-radius: 10px;
+      padding: 10px 22px; font-family: 'DM Sans', sans-serif;
+      font-size: 13px; font-weight: 600; cursor: pointer;
+      transition: all .25s; white-space: nowrap;
+    }
+    .nav-login:hover { background: #2D6A4F; box-shadow: 0 6px 20px rgba(27,67,50,0.28); transform: translateY(-1px); }
+    .nav-menu-btn { display: none; background: none; border: none; cursor: pointer; font-size: 22px; color: #1B4332; }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    .hero {
+      padding-top: 72px; min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      position: relative; overflow: hidden;
+      background-color: #FDFAF5;
+      background-image:
+        radial-gradient(ellipse 60% 70% at 10% 60%, rgba(212,98,26,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 90% 15%, rgba(27,67,50,0.07) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 40% at 50% 95%, rgba(212,98,26,0.05) 0%, transparent 50%);
+    }
+    .hero::after {
+      content: ''; position: absolute; top: 50%; right: 49%;
+      transform: translate(50%, -50%);
+      width: 480px; height: 480px; border-radius: 50%;
+      border: 1px solid rgba(212,98,26,0.09);
+      box-shadow: 0 0 0 55px rgba(212,98,26,0.03), 0 0 0 110px rgba(27,67,50,0.025);
+      pointer-events: none; z-index: 1;
+    }
+    .hero-bg-mandala {
+      position: absolute; top: 60px; right: 46%;
+      width: 200px; height: 200px;
+      background-image: repeating-conic-gradient(rgba(212,98,26,0.04) 0deg 10deg, transparent 10deg 20deg);
+      border-radius: 50%; z-index: 1; pointer-events: none;
+    }
+    .hero-left {
+      padding: 80px 56px 80px 80px;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; z-index: 2;
+    }
+    .hero-right { position: relative; overflow: hidden; }
+    .hero-right img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
+    .hero-right-shade {
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, #FDFAF5 0%, rgba(253,250,245,0.2) 35%, transparent 65%);
+    }
+    .hero-dots {
+      position: absolute; bottom: 56px; left: 72px;
+      width: 110px; height: 75px; z-index: 2;
+      background-image: radial-gradient(circle, rgba(212,98,26,0.22) 1.5px, transparent 1.5px);
+      background-size: 13px 13px; pointer-events: none;
+    }
+    .hero-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 22px; flex-wrap: wrap; }
+    .hero-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #FDF0E8; border: 1px solid #FAE4D4;
+      border-radius: 100px; padding: 5px 14px;
+    }
+    .hero-pill span { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #D4621A; }
+    .hero-pill.green-pill { background: #EAF4EE; border-color: #D8EDE2; }
+    .hero-pill.green-pill span { color: #2D6A4F; }
+    .hero-h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(36px, 4.5vw, 60px);
+      font-weight: 700; line-height: 1.1; color: #1A1A1A; margin-bottom: 20px;
+    }
+    .hero-h1 span { color: #D4621A; }
+    .hero-sub { font-size: 15px; font-weight: 300; line-height: 1.85; color: #6B6B6B; max-width: 430px; margin-bottom: 38px; }
+    .hero-actions { display: flex; gap: 13px; flex-wrap: wrap; margin-bottom: 52px; }
+
+    /* ── BUTTONS ── */
+    .btn-saffron {
+      background: #D4621A; color: #fff; border: none; border-radius: 12px;
+      padding: 15px 28px; font-family: 'DM Sans', sans-serif;
+      font-size: 13px; font-weight: 700; cursor: pointer; transition: all .25s;
+    }
+    .btn-saffron:hover { background: #E8753A; box-shadow: 0 10px 28px rgba(212,98,26,0.35); transform: translateY(-2px); }
+    .btn-outline-green {
+      background: transparent; color: #1B4332;
+      border: 2px solid #1B4332; border-radius: 12px;
+      padding: 13px 26px; font-family: 'DM Sans', sans-serif;
+      font-size: 13px; font-weight: 700; cursor: pointer; transition: all .25s;
+    }
+    .btn-outline-green:hover { background: #1B4332; color: #fff; transform: translateY(-2px); }
+    .btn-outline-saffron {
+      background: transparent; color: #D4621A;
+      border: 2px solid #D4621A; border-radius: 12px;
+      padding: 12px 30px; font-family: 'DM Sans', sans-serif;
+      font-size: 13px; font-weight: 700; cursor: pointer; transition: all .25s;
+    }
+    .btn-outline-saffron:hover { background: #D4621A; color: #fff; }
+
+    .hero-stats { display: flex; flex-wrap: wrap; gap: 0; }
+    .hero-stat { padding: 0 28px 0 0; margin-right: 28px; border-right: 1px solid #E2DDD6; }
+    .hero-stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+    .hero-stat-num { font-family: 'Lora', serif; font-size: 32px; font-weight: 700; color: #1B4332; line-height: 1; }
+    .hero-stat-lbl { font-size: 10px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: #6B6B6B; margin-top: 4px; }
+
+    /* ══════════════════════════════════════
+       UNESCO BAR
+    ══════════════════════════════════════ */
+    .unesco-bar { background: #fff; border-top: 1px solid #EDE9E2; border-bottom: 1px solid #EDE9E2; padding: 44px 0; }
+    .unesco-inner {
+      max-width: 1240px; margin: 0 auto; padding: 0 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 36px; flex-wrap: wrap;
+    }
+    .unesco-logo-block { display: flex; align-items: center; gap: 20px; flex-shrink: 0; }
+    .unesco-emblem {
+      width: 68px; height: 68px; border-radius: 50%;
+      background: #EAF4EE; border: 2px solid #D8EDE2;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; flex-shrink: 0;
+    }
+    .unesco-brand-name { font-family: 'Lora', serif; font-size: 21px; font-weight: 700; color: #1B4332; line-height: 1.2; }
+    .unesco-brand-sub { font-size: 10.5px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: #6B6B6B; margin-top: 2px; }
+    .unesco-statement { max-width: 520px; }
+    .unesco-headline { font-family: 'Lora', serif; font-size: 21px; font-weight: 700; color: #1B4332; line-height: 1.35; margin-bottom: 8px; }
+    .unesco-desc { font-size: 13.5px; color: #6B6B6B; line-height: 1.75; }
+    .unesco-badges { display: flex; gap: 10px; flex-wrap: wrap; }
+    .unesco-badge { background: #EAF4EE; border: 1px solid #D8EDE2; border-radius: 8px; padding: 7px 14px; font-size: 11px; font-weight: 600; color: #2D6A4F; }
+    .unesco-divider { width: 1px; height: 72px; background: #E2DDD6; flex-shrink: 0; }
+
+    /* ══════════════════════════════════════
+       SECTION BASE
+    ══════════════════════════════════════ */
+    .section { padding: 90px 0; }
+    .section-hdr { text-align: center; margin-bottom: 56px; }
+    .section-h2 { font-family: 'Lora', serif; font-size: clamp(26px, 3.5vw, 42px); font-weight: 700; color: #1A1A1A; line-height: 1.15; margin: 10px 0 12px; }
+    .section-h2 em { color: #D4621A; font-style: italic; }
+    .section-sub { font-size: 14.5px; color: #6B6B6B; line-height: 1.8; max-width: 500px; margin: 0 auto; }
+
+    /* ══════════════════════════════════════
+       THREE PILLARS
+    ══════════════════════════════════════ */
+    .pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .pillar-card {
+      background: #fff; border: 1px solid #E2DDD6;
+      border-radius: 20px; padding: 38px 30px;
+      position: relative; overflow: hidden; transition: all .35s ease;
+    }
+    .pillar-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: #D4621A; transform: scaleX(0); transform-origin: left; transition: transform .35s ease;
+    }
+    .pillar-card:hover { border-color: #D4621A; box-shadow: 0 16px 48px rgba(212,98,26,0.1); transform: translateY(-4px); }
+    .pillar-card:hover::before { transform: scaleX(1); }
+    .pillar-icon {
+      width: 54px; height: 54px; border-radius: 13px;
+      background: #EAF4EE; border: 1px solid #D8EDE2;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 23px; margin-bottom: 22px;
+    }
+    .pillar-num { font-size: 10px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #D4621A; margin-bottom: 7px; }
+    .pillar-title { font-family: 'Lora', serif; font-size: 19px; font-weight: 700; color: #D4621A; line-height: 1.25; margin-bottom: 11px; }
+    .pillar-desc { font-size: 13.5px; color: #6B6B6B; line-height: 1.75; margin-bottom: 22px; }
+    .pillar-link {
+      font-size: 11.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      color: #1B4332; text-decoration: none; display: inline-flex; align-items: center; gap: 5px;
+      border-bottom: 1.5px solid #D8EDE2; padding-bottom: 2px; transition: all .2s;
+    }
+    .pillar-link:hover { color: #D4621A; border-color: #FAE4D4; }
+
+    /* ══════════════════════════════════════
+       HALL OF FAME
+    ══════════════════════════════════════ */
+    .hof-section {
+      background: #EAF4EE; border-top: 1px solid #D8EDE2; border-bottom: 1px solid #D8EDE2;
+      padding: 90px 0; position: relative; overflow: hidden;
+    }
+    .hof-section::before {
+      content: '"'; position: absolute; top: -60px; right: 60px;
+      font-family: 'Lora', serif; font-size: 340px;
+      color: rgba(27,67,50,0.05); line-height: 1; pointer-events: none; user-select: none;
+    }
+    .hof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 52px; }
+    .hof-card { background: #fff; border-radius: 20px; border: 1px solid #D8EDE2; padding: 36px 28px; transition: all .3s; }
+    .hof-card:hover { box-shadow: 0 12px 40px rgba(27,67,50,0.1); transform: translateY(-3px); }
+    .hof-quote-mark { font-family: 'Lora', serif; font-size: 54px; font-weight: 700; color: #D4621A; line-height: .6; margin-bottom: 18px; display: block; }
+    .hof-quote { font-family: 'Lora', serif; font-size: 14.5px; font-style: italic; color: #3D3D3D; line-height: 1.8; margin-bottom: 26px; }
+    .hof-person { display: flex; align-items: center; gap: 13px; }
+    .hof-avatar {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: linear-gradient(135deg, #1B4332, #40916C);
+      border: 2px solid #D8EDE2;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lora', serif; font-size: 17px; font-weight: 700; color: #fff; flex-shrink: 0;
+    }
+    .hof-name { font-size: 13.5px; font-weight: 700; color: #1B4332; }
+    .hof-role { font-size: 10.5px; color: #6B6B6B; margin-top: 2px; letter-spacing: .3px; }
+
+    /* ══════════════════════════════════════
+       NEWS & EVENTS
+    ══════════════════════════════════════ */
+    .news-section-bg { background: #F8F6F1; }
+    .news-section-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 52px; flex-wrap: wrap; gap: 16px; }
+    .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 0; }
+    .news-card { border: 1px solid #E2DDD6; border-radius: 16px; overflow: hidden; background: #fff; transition: all .3s; }
+    .news-card:hover { box-shadow: 0 12px 36px rgba(0,0,0,0.07); transform: translateY(-3px); border-color: #D8EDE2; }
+    .news-img-wrap { position: relative; height: 175px; overflow: hidden; background: #F2F0EA; }
+    .news-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; display: block; }
+    .news-card:hover .news-img-wrap img { transform: scale(1.04); }
+    .news-date-badge {
+      position: absolute; top: 13px; left: 13px;
+      background: #1B4332; color: #fff; border-radius: 8px; padding: 6px 11px;
+      display: flex; flex-direction: column; align-items: center; line-height: 1;
+    }
+    .news-date-day { font-size: 17px; font-weight: 700; }
+    .news-date-mon { font-size: 8.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; }
+    .news-loc-badge {
+      position: absolute; top: 13px; right: 13px;
+      background: rgba(255,255,255,0.93); border-radius: 100px; padding: 4px 11px;
+      font-size: 9.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: #D4621A;
+    }
+    .news-body { padding: 20px; }
+    .news-category { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #2D6A4F; margin-bottom: 7px; }
+    .news-title { font-family: 'Lora', serif; font-size: 15.5px; font-weight: 700; color: #D4621A; line-height: 1.35; margin-bottom: 9px; }
+    .news-desc { font-size: 12.5px; color: #6B6B6B; line-height: 1.7; }
+
+    /* ══════════════════════════════════════
+       STATS
+    ══════════════════════════════════════ */
+    .stats-section { background: #1B4332; padding: 76px 0; }
+    .stats-inner { display: grid; grid-template-columns: repeat(4, 1fr); max-width: 1240px; margin: 0 auto; padding: 0 48px; }
+    .stat-block { text-align: center; padding: 0 28px; border-right: 1px solid rgba(255,255,255,0.12); }
+    .stat-block:last-child { border-right: none; }
+    .stat-num-big { font-family: 'Lora', serif; font-size: clamp(38px, 5vw, 62px); font-weight: 700; color: #D4621A; line-height: 1; }
+    .stat-lbl-big { font-size: 11.5px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.7); margin-top: 9px; line-height: 1.4; }
+    .stat-desc { font-size: 11.5px; color: rgba(255,255,255,0.42); margin-top: 3px; }
+
+    /* ══════════════════════════════════════
+       GALLERY
+    ══════════════════════════════════════ */
+    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 230px); gap: 14px; margin-top: 52px; }
+    .gallery-item { border-radius: 16px; overflow: hidden; position: relative; cursor: pointer; background: #F2F0EA; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; display: block; }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(27,67,50,0.78) 0%, transparent 55%);
+      opacity: 0; transition: opacity .3s;
+      display: flex; align-items: flex-end; padding: 18px;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-caption { font-family: 'Lora', serif; font-size: 13px; font-weight: 600; color: #fff; line-height: 1.35; }
+    .gallery-link-row { text-align: center; margin-top: 36px; }
+
+    /* ══════════════════════════════════════
+       RECENT UPDATES
+    ══════════════════════════════════════ */
+    .updates-section { background: #F8F6F1; padding: 90px 0; }
+    .updates-section-header { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 52px; }
+    .updates-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .updates-left { display: flex; flex-direction: column; }
+    .update-item { display: flex; gap: 18px; padding: 20px 0; border-bottom: 1px solid #E2DDD6; cursor: pointer; transition: all .2s; }
+    .update-item:first-child { padding-top: 0; }
+    .update-item:last-child { border-bottom: none; }
+    .update-item:hover .update-title { color: #D4621A; }
+    .update-date-chip {
+      background: #1B4332; color: #fff; border-radius: 9px; padding: 8px 12px;
+      text-align: center; flex-shrink: 0; min-width: 52px; align-self: flex-start;
+    }
+    .update-date-day { font-size: 18px; font-weight: 700; line-height: 1; display: block; }
+    .update-date-mo  { font-size: 8px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; display: block; }
+    .update-cat { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #2D6A4F; margin-bottom: 5px; }
+    .update-title { font-family: 'Lora', serif; font-size: 15px; font-weight: 700; color: #1A1A1A; line-height: 1.35; margin-bottom: 5px; transition: color .2s; }
+    .update-desc { font-size: 12.5px; color: #6B6B6B; line-height: 1.65; }
+    .update-tag-badge {
+      display: inline-block; background: #FDF0E8; color: #D4621A;
+      border: 1px solid #FAE4D4; border-radius: 100px;
+      padding: 2px 10px; font-size: 9px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-top: 6px;
+    }
+    .updates-right { display: flex; flex-direction: column; gap: 16px; }
+    .update-feat-card { background: #fff; border: 1px solid #E2DDD6; border-radius: 18px; overflow: hidden; transition: all .3s; flex: 1; }
+    .update-feat-card:hover { box-shadow: 0 10px 32px rgba(0,0,0,0.07); border-color: #D8EDE2; }
+    .update-feat-img { height: 165px; overflow: hidden; background: #F2F0EA; }
+    .update-feat-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .update-feat-body { padding: 18px 20px 4px; }
+    .update-feat-tag { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #D4621A; margin-bottom: 7px; }
+    .update-feat-title { font-family: 'Lora', serif; font-size: 15.5px; font-weight: 700; color: #1A1A1A; line-height: 1.35; margin-bottom: 7px; }
+    .update-feat-desc { font-size: 12.5px; color: #6B6B6B; line-height: 1.7; }
+    .update-feat-footer { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px 16px; border-top: 1px solid #EDE9E2; margin-top: 14px; }
+    .update-read-more { font-size: 11.5px; font-weight: 700; color: #1B4332; text-decoration: none; display: flex; align-items: center; gap: 4px; }
+    .update-read-more:hover { color: #D4621A; }
+    .update-date-label { font-size: 11px; color: #6B6B6B; }
+
+    /* ══════════════════════════════════════
+       SPONSORS
+    ══════════════════════════════════════ */
+    .sponsors-section { background: #fff; padding: 72px 0; border-top: 1px solid #EDE9E2; }
+    .sponsors-inner { max-width: 1240px; margin: 0 auto; padding: 0 48px; }
+    .sponsors-hdr { text-align: center; margin-bottom: 48px; }
+    .sponsors-sub { font-size: 13.5px; color: #6B6B6B; margin-top: 8px; }
+    .sponsors-tiers { display: flex; flex-direction: column; gap: 36px; }
+    .sponsors-tier-label {
+      font-size: 9.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+      color: #6B6B6B; text-align: center; margin-bottom: 18px; position: relative;
+    }
+    .sponsors-tier-label::before, .sponsors-tier-label::after {
+      content: ''; position: absolute; top: 50%; width: calc(50% - 90px); height: 1px; background: #EDE9E2;
+    }
+    .sponsors-tier-label::before { left: 0; }
+    .sponsors-tier-label::after  { right: 0; }
+    .sponsors-row { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .sponsor-card {
+      background: #fff; border: 1px solid #E2DDD6; border-radius: 14px;
+      padding: 16px 24px; display: flex; align-items: center; justify-content: center;
+      transition: all .25s; cursor: pointer; min-width: 130px;
+    }
+    .sponsor-card:hover { border-color: #D8EDE2; box-shadow: 0 6px 24px rgba(27,67,50,0.08); transform: translateY(-2px); }
+    .sponsor-card.gold { border-color: rgba(212,98,26,0.2); background: #FDF0E8; }
+    .sponsor-card.gold:hover { border-color: #D4621A; }
+    .sponsor-logo-placeholder { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .sponsor-logo-icon { width: 38px; height: 38px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 19px; flex-shrink: 0; }
+    .sponsor-logo-icon.s-gold  { background: #FDF0E8; border: 1px solid #FAE4D4; }
+    .sponsor-logo-icon.s-green { background: #EAF4EE; border: 1px solid #D8EDE2; }
+    .sponsor-name { font-family: 'Lora', serif; font-size: 12.5px; font-weight: 700; color: #3D3D3D; white-space: nowrap; text-align: center; }
+    .sponsor-type { font-size: 9px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: #6B6B6B; text-align: center; }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    .footer { background: #1B4332; position: relative; overflow: hidden; }
+    .footer::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, #D4621A 0%, #E8753A 50%, transparent 100%);
+    }
+    .footer-top { padding: 76px 0 52px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1.2fr 1.2fr 1.5fr; gap: 56px; }
+    .footer-brand-row { display: flex; align-items: center; gap: 11px; margin-bottom: 14px; }
+    .footer-about-name { font-family: 'Lora', serif; font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 3px; }
+    .footer-about-sub { font-size: 9.5px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #D4621A; margin-bottom: 16px; }
+    .footer-about-desc { font-size: 13px; color: rgba(255,255,255,0.58); line-height: 1.8; margin-bottom: 22px; max-width: 270px; }
+    .footer-socials { display: flex; gap: 9px; }
+    .f-social {
+      width: 33px; height: 33px; border-radius: 8px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.11);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; color: rgba(255,255,255,0.65);
+      cursor: pointer; transition: all .2s; text-decoration: none;
+    }
+    .f-social:hover { background: #D4621A; border-color: #D4621A; color: #fff; }
+    .footer-col-hdr { font-size: 9.5px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #D4621A; margin-bottom: 20px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 9px; }
+    .footer-links a { font-size: 13px; color: rgba(255,255,255,0.58); text-decoration: none; transition: color .2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-contact-item { display: flex; gap: 9px; margin-bottom: 10px; font-size: 13px; color: rgba(255,255,255,0.58); line-height: 1.5; }
+    .footer-contact-icon { font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+    .backup-notice {
+      background: rgba(212,98,26,0.16); border: 1px solid rgba(212,98,26,0.32);
+      border-radius: 10px; padding: 13px 16px; margin-top: 16px;
+      display: flex; align-items: flex-start; gap: 9px;
+    }
+    .backup-notice-icon { font-size: 15px; flex-shrink: 0; }
+    .backup-notice-text { font-size: 11.5px; color: rgba(255,255,255,0.68); line-height: 1.55; }
+    .backup-notice-text strong { color: #E8753A; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding: 22px 0; }
+    .footer-bottom-inner {
+      max-width: 1240px; margin: 0 auto; padding: 0 48px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-copy { font-size: 11.5px; color: rgba(255,255,255,0.38); }
+    .footer-copy span { color: #D4621A; }
+    .footer-legal-links { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+    .footer-legal-links a { font-size: 11px; color: rgba(255,255,255,0.32); text-decoration: none; transition: color .2s; }
+    .footer-legal-links a:hover { color: rgba(255,255,255,0.7); }
+    .footer-member-btn {
+      background: #D4621A; color: #fff; border: none; border-radius: 8px;
+      padding: 9px 18px; font-family: 'DM Sans', sans-serif;
+      font-size: 11px; font-weight: 700; cursor: pointer; transition: all .2s;
+    }
+    .footer-member-btn:hover { background: #E8753A; }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 60px 32px; }
+      .pillars { grid-template-columns: 1fr; }
+      .hof-grid { grid-template-columns: 1fr; }
+      .news-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-rows: repeat(4, 200px); grid-template-columns: 1fr; }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 40px; padding: 0 32px; }
+      .stat-block { border-right: none; padding: 20px 0; }
+      .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+      .container, .nav-inner, .footer-bottom-inner, .sponsors-inner, .unesco-inner { padding: 0 24px; }
+      .updates-layout { grid-template-columns: 1fr; }
+      .sponsors-row { gap: 12px; }
+      .nav-links { display: none; }
+      .nav-unesco { display: none; }
+      .nav-menu-btn { display: block; }
+      .unesco-divider { display: none; }
+      .footer-bottom-inner { padding: 0 24px; }
+    }
+    @media (max-width: 600px) {
+      .stats-inner { grid-template-columns: 1fr; }
+      .news-section-header { flex-direction: column; align-items: flex-start; }
+      .updates-section-header { flex-direction: column; align-items: flex-start; }
+      .hero-stats { flex-direction: column; gap: 16px; }
+      .hero-stat { border-right: none; margin-right: 0; padding-right: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVIGATION ══ -->
+  <header class="nav-wrap" id="navbar">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#">
+        <div class="nav-logo-mark">अ</div>
+        <div>
+          <div class="nav-brand-name">ABSS India</div>
+          <div class="nav-brand-sub">Akhil Bharatiya Sanskrutik Sangh</div>
+        </div>
+      </a>
+
+      <div class="nav-unesco">
+        <div class="nav-unesco-dot"></div>
+        <span>UNESCO Partner</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Activities</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Photo / News</a></li>
+      </ul>
+
+      <button class="nav-login">Member Login →</button>
+      <button class="nav-menu-btn" onclick="toggleMenu()" aria-label="Menu">☰</button>
+    </div>
+  </header>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero">
+    <div class="hero-bg-mandala"></div>
+    <div class="hero-dots"></div>
+
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="hero-pill"><span>🌐 UNESCO Official Partner</span></div>
+        <div class="hero-pill green-pill"><span>Est. 1987</span></div>
+      </div>
+
+      <h1 class="hero-h1 lora">
+        Harmonizing<br>
+        <span>Global Talent</span><br>
+        Through Art
+      </h1>
+
+      <p class="hero-sub">
+        India's premier cultural body — discovering, nurturing, and presenting
+        extraordinary artists on the world stage through the Cultural Olympiad
+        and the National Art Talent Search.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn-saffron">Register for COPA 2025 →</button>
+        <button class="btn-outline-green">Our Vision</button>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num lora">38+</div>
+          <div class="hero-stat-lbl">Years of Legacy</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num lora">2M+</div>
+          <div class="hero-stat-lbl">Artists Reached</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num lora">54</div>
+          <div class="hero-stat-lbl">Countries</div>
+        </div>
+        <div class="hero-stat" style="border-right:none;margin-right:0;padding-right:0;">
+          <div class="hero-stat-num lora">12K+</div>
+          <div class="hero-stat-lbl">Alumni</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <img src="https://picsum.photos/seed/500/900/900" alt="Indian classical dancer" onerror="this.src='https://picsum.photos/900/900?grayscale'" />
+      <div class="hero-right-shade"></div>
+    </div>
+  </section>
+
+  <!-- ══ UNESCO BAR ══ -->
+  <div class="unesco-bar sr">
+    <div class="unesco-inner">
+      <div class="unesco-logo-block">
+        <div class="unesco-emblem">🏛️</div>
+        <div>
+          <div class="unesco-brand-name">UNESCO</div>
+          <div class="unesco-brand-sub">United Nations Educational,<br>Scientific & Cultural Organization</div>
+        </div>
+      </div>
+
+      <div class="unesco-divider"></div>
+
+      <div class="unesco-statement">
+        <div class="tag tag-green" style="margin-bottom:10px;">Official Partnership</div>
+        <h2 class="unesco-headline lora">ABSS is an Official Partner<br>of UNESCO — Culture Division</h2>
+        <p class="unesco-desc">Recognised under UNESCO's Intangible Cultural Heritage mandate, ABSS operates as a designated cultural exchange body, contributing to global heritage preservation and intercultural dialogue.</p>
+      </div>
+
+      <div class="unesco-divider"></div>
+
+      <div class="unesco-badges">
+        <div class="unesco-badge">🎖 Officially Recognised</div>
+        <div class="unesco-badge">🌍 Global Mandate</div>
+        <div class="unesco-badge">📜 Since 2003</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ THREE PILLARS ══ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-hdr sr">
+        <div class="tag tag-saffron" style="justify-content:center;margin-bottom:11px;">Core Programmes</div>
+        <h2 class="section-h2 lora">Three Pillars of <em>Cultural Excellence</em></h2>
+        <p class="section-sub">Each programme is designed to identify raw talent, provide world-class platforms, and build bridges between India and the global arts community.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar-card sr" style="transition-delay:.00s">
+          <div class="pillar-icon">🏆</div>
+          <div class="pillar-num">Pillar 01</div>
+          <div class="pillar-title lora">National Art Talent Search</div>
+          <p class="pillar-desc">India's most prestigious cross-disciplinary arts competition spanning all 28 states — discovering the next generation of classical performers since 1992.</p>
+          <a class="pillar-link" href="#">Explore NATS →</a>
+        </div>
+        <div class="pillar-card sr" style="transition-delay:.12s">
+          <div class="pillar-icon">🎭</div>
+          <div class="pillar-num">Pillar 02</div>
+          <div class="pillar-title lora">Cultural Olympiad (COPA)</div>
+          <p class="pillar-desc">An international multi-art festival hosted in Dubai, Singapore and Monaco — where Indian artists compete and collaborate on the world stage.</p>
+          <a class="pillar-link" href="#">Explore COPA →</a>
+        </div>
+        <div class="pillar-card sr" style="transition-delay:.24s">
+          <div class="pillar-icon">🌐</div>
+          <div class="pillar-num">Pillar 03</div>
+          <div class="pillar-title lora">Global Council of Art & Culture</div>
+          <p class="pillar-desc">An 18-nation advisory council that shapes policy, facilitates exchanges, and ensures ABSS remains a living bridge between civilisations.</p>
+          <a class="pillar-link" href="#">Meet the Council →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ HALL OF FAME ══ -->
+  <div class="hof-section">
+    <div class="container">
+      <div class="section-hdr sr">
+        <div class="tag tag-saffron" style="justify-content:center;margin-bottom:11px;">Hall of Fame</div>
+        <h2 class="section-h2 lora" style="color:#1B4332;">Voices That <em style="color:#D4621A;">Endorse Our Mission</em></h2>
+        <p class="section-sub">Bharat's greatest luminaries and global cultural leaders — patrons and lifelong champions of ABSS's vision.</p>
+      </div>
+      <div class="hof-grid">
+        <div class="hof-card sr" style="transition-delay:.00s">
+          <span class="hof-quote-mark">"</span>
+          <p class="hof-quote lora">ABSS has been the keeper of our musical soul. In an age of rapid change, they have ensured that the raga always finds its way home — back to the hearts of millions born with this music.</p>
+          <div class="hof-person">
+            <div class="hof-avatar">L</div>
+            <div>
+              <div class="hof-name">Hon. Lata Mangeshkar</div>
+              <div class="hof-role">Bharat Ratna · The Nightingale of India</div>
+            </div>
+          </div>
+        </div>
+        <div class="hof-card sr" style="transition-delay:.12s">
+          <span class="hof-quote-mark">"</span>
+          <p class="hof-quote lora">What ABSS has built is not merely an organisation. It is a sacred corridor between generations. I watched timid young artists arrive and leave transformed, carrying the torch with pride.</p>
+          <div class="hof-person">
+            <div class="hof-avatar">B</div>
+            <div>
+              <div class="hof-name">Pt. Bhimsen Joshi</div>
+              <div class="hof-role">Bharat Ratna · Kirana Gharana Maestro</div>
+            </div>
+          </div>
+        </div>
+        <div class="hof-card sr" style="transition-delay:.24s">
+          <span class="hof-quote-mark">"</span>
+          <p class="hof-quote lora">ABSS exemplifies true cultural diplomacy — not only preserving tradition but making it a living force in the global conversation. Their model deserves recognition and replication worldwide.</p>
+          <div class="hof-person">
+            <div class="hof-avatar">U</div>
+            <div>
+              <div class="hof-name">Dr. Audrey Azoulay</div>
+              <div class="hof-role">Director-General, UNESCO</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ NEWS & EVENTS ══ -->
+  <section class="section news-section-bg">
+    <div class="container">
+      <div class="news-section-header sr">
+        <div>
+          <div class="tag tag-green" style="margin-bottom:11px;">Latest</div>
+          <h2 class="section-h2 lora" style="margin:0;">News & <em>Upcoming Events</em></h2>
+        </div>
+        <button class="btn-outline-saffron">View All Events →</button>
+      </div>
+      <div class="news-grid">
+        <div class="news-card sr" style="transition-delay:.00s">
+          <div class="news-img-wrap">
+            <img src="https://picsum.photos/seed/1010/600/350" alt="COPA Gulf Edition" onerror="this.style.display='none'" />
+            <div class="news-date-badge"><span class="news-date-day">14</span><span class="news-date-mon">Feb</span></div>
+            <div class="news-loc-badge">📍 Dubai, UAE</div>
+          </div>
+          <div class="news-body">
+            <div class="news-category">● Cultural Olympiad</div>
+            <div class="news-title lora">COPA Gulf Edition 2025</div>
+            <p class="news-desc">South Asian performing arts on the Arabian Peninsula with 420 competing artists.</p>
+          </div>
+        </div>
+        <div class="news-card sr" style="transition-delay:.08s">
+          <div class="news-img-wrap">
+            <img src="https://picsum.photos/seed/1020/600/350" alt="Asia Arts Forum" onerror="this.style.display='none'" />
+            <div class="news-date-badge"><span class="news-date-day">09</span><span class="news-date-mon">Apr</span></div>
+            <div class="news-loc-badge">📍 Singapore</div>
+          </div>
+          <div class="news-body">
+            <div class="news-category">● Heritage Summit</div>
+            <div class="news-title lora">Asia Arts & Culture Forum</div>
+            <p class="news-desc">UNESCO-backed dialogue on preserving intangible cultural heritage across ASEAN.</p>
+          </div>
+        </div>
+        <div class="news-card sr" style="transition-delay:.16s">
+          <div class="news-img-wrap">
+            <img src="https://picsum.photos/seed/1030/600/350" alt="Monaco Grand Prix" onerror="this.style.display='none'" />
+            <div class="news-date-badge"><span class="news-date-day">22</span><span class="news-date-mon">Sep</span></div>
+            <div class="news-loc-badge">📍 Monaco</div>
+          </div>
+          <div class="news-body">
+            <div class="news-category">● Grand Festival</div>
+            <div class="news-title lora">Monaco Cultural Grand Prix</div>
+            <p class="news-desc">ABSS represents Bharat's classical tradition at the international arts summit.</p>
+          </div>
+        </div>
+        <div class="news-card sr" style="transition-delay:.24s">
+          <div class="news-img-wrap">
+            <img src="https://picsum.photos/seed/1040/600/350" alt="NATS Finals" onerror="this.style.display='none'" />
+            <div class="news-date-badge"><span class="news-date-day">03</span><span class="news-date-mon">Nov</span></div>
+            <div class="news-loc-badge">📍 New Delhi</div>
+          </div>
+          <div class="news-body">
+            <div class="news-category">● Talent Search</div>
+            <div class="news-title lora">National Art Talent Search — Finals</div>
+            <p class="news-desc">State champions from 28 states converge for the national finale of NATS 2025.</p>
+          </div>
+        </div>
+        <div class="news-card sr" style="transition-delay:.32s">
+          <div class="news-img-wrap">
+            <img src="https://picsum.photos/seed/1050/600/350" alt="Gurukul Masterclass" onerror="this.style.display='none'" />
+            <div class="news-date-badge"><span class="news-date-day">18</span><span class="news-date-mon">Jan</span></div>
+            <div class="news-loc-badge">📍 Mumbai</div>
+          </div>
+          <div class="news-body">
+            <div class="news-category">● Workshop</div>
+            <div class="news-title lora">Gurukul Masterclass Series</div>
+            <p class="news-desc">Intensive sessions in Kathak, Carnatic Vocal, Tabla and Odissi by Padma Awardees.</p>
+          </div>
+        </div>
+        <div class="news-card sr" style="transition-delay:.40s">
+          <div class="news-img-wrap">
+            <img src="https://picsum.photos/seed/1060/600/350" alt="Global Council" onerror="this.style.display='none'" />
+            <div class="news-date-badge"><span class="news-date-day">07</span><span class="news-date-mon">Mar</span></div>
+            <div class="news-loc-badge">📍 London</div>
+          </div>
+          <div class="news-body">
+            <div class="news-category">● Global Council</div>
+            <div class="news-title lora">Global Council Annual Assembly</div>
+            <p class="news-desc">18-nation council meets to plan the 2026 Cultural Olympiad calendar.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ IMPACT STATS ══ -->
+  <div class="stats-section">
+    <div class="stats-inner">
+      <div class="stat-block sr" style="transition-delay:.00s">
+        <div class="stat-num-big lora" data-target="38" data-suffix="+">0+</div>
+        <div class="stat-lbl-big">Years of Legacy</div>
+        <div class="stat-desc">Established 1987</div>
+      </div>
+      <div class="stat-block sr" style="transition-delay:.10s">
+        <div class="stat-num-big lora" data-target="2000000" data-suffix="+">0+</div>
+        <div class="stat-lbl-big">Artists Reached</div>
+        <div class="stat-desc">Across all programmes</div>
+      </div>
+      <div class="stat-block sr" style="transition-delay:.20s">
+        <div class="stat-num-big lora" data-target="54" data-suffix="">0</div>
+        <div class="stat-lbl-big">Countries Involved</div>
+        <div class="stat-desc">Global footprint</div>
+      </div>
+      <div class="stat-block sr" style="transition-delay:.30s">
+        <div class="stat-num-big lora" data-target="12000" data-suffix="+">0+</div>
+        <div class="stat-lbl-big">Alumni Network</div>
+        <div class="stat-desc">NATS & COPA graduates</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ GALLERY ══ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-hdr sr">
+        <div class="tag tag-green" style="justify-content:center;margin-bottom:11px;">Gallery</div>
+        <h2 class="section-h2 lora">Moments from the <em>Global Stage</em></h2>
+        <p class="section-sub">A curated selection of images from our international festivals, competitions, and cultural forums.</p>
+      </div>
+      <div class="gallery-grid sr">
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/2010/700/460" alt="Bharatanatyam" onerror="this.style.background='#D8EDE2'" />
+          <div class="gallery-overlay"><span class="gallery-caption lora">Bharatanatyam — Cultural Olympiad, Dubai 2024</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/2020/700/460" alt="Kathak Solo" onerror="this.style.background='#D8EDE2'" />
+          <div class="gallery-overlay"><span class="gallery-caption lora">Kathak Solo — NATS National Finals, New Delhi</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/2030/700/460" alt="Classical Music" onerror="this.style.background='#D8EDE2'" />
+          <div class="gallery-overlay"><span class="gallery-caption lora">Classical Music Night — Singapore Arts Forum</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://picsum.photos/seed/2040/700/460" alt="Youth Ensemble" onerror="this.style.background='#D8EDE2'" />
+          <div class="gallery-overlay"><span class="gallery-caption lora">Youth Ensemble — Global Council Assembly, London</span></div>
+        </div>
+      </div>
+      <div class="gallery-link-row sr">
+        <button class="btn-outline-saffron">View Full Gallery →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ RECENT UPDATES ══ -->
+  <div class="updates-section">
+    <div class="container">
+      <div class="updates-section-header">
+        <div class="sr">
+          <div class="tag tag-saffron" style="margin-bottom:11px;">Stay Informed</div>
+          <h2 class="section-h2 lora" style="margin:0;">Recent <em>Updates</em></h2>
+        </div>
+        <button class="btn-outline-green sr">All Updates →</button>
+      </div>
+
+      <div class="updates-layout">
+        <!-- Left feed -->
+        <div class="updates-left sr">
+          <div class="update-item" style="transition-delay:.00s">
+            <div class="update-date-chip"><span class="update-date-day">28</span><span class="update-date-mo">Jun</span></div>
+            <div>
+              <div class="update-cat">● Announcement</div>
+              <div class="update-title lora">COPA 2025 Official Schedule Released</div>
+              <div class="update-desc">Full event calendar now live — registrations open for all art forms.</div>
+              <span class="update-tag-badge">New</span>
+            </div>
+          </div>
+          <div class="update-item" style="transition-delay:.08s">
+            <div class="update-date-chip"><span class="update-date-day">15</span><span class="update-date-mo">Jun</span></div>
+            <div>
+              <div class="update-cat">● Recognition</div>
+              <div class="update-title lora">ABSS Honoured at UNESCO Paris Summit</div>
+              <div class="update-desc">Director received the Global Cultural Excellence Award in Paris.</div>
+              <span class="update-tag-badge">Award</span>
+            </div>
+          </div>
+          <div class="update-item" style="transition-delay:.16s">
+            <div class="update-date-chip"><span class="update-date-day">02</span><span class="update-date-mo">Jun</span></div>
+            <div>
+              <div class="update-cat">● Registration</div>
+              <div class="update-title lora">NATS 2025 Applications Now Open</div>
+              <div class="update-desc">State-level qualifying rounds begin July — apply before 30 June.</div>
+              <span class="update-tag-badge">Open</span>
+            </div>
+          </div>
+          <div class="update-item" style="transition-delay:.24s">
+            <div class="update-date-chip"><span class="update-date-day">20</span><span class="update-date-mo">May</span></div>
+            <div>
+              <div class="update-cat">● Media</div>
+              <div class="update-title lora">Featured in Times of India — Cultural Supplement</div>
+              <div class="update-desc">Eight-page spread covering COPA's global journey over 15 years.</div>
+              <span class="update-tag-badge">Press</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right featured -->
+        <div class="updates-right">
+          <div class="update-feat-card sr" style="transition-delay:.00s">
+            <div class="update-feat-img">
+              <img src="https://picsum.photos/seed/3010/700/330" alt="UNESCO Forum" onerror="this.style.display='none'" />
+            </div>
+            <div class="update-feat-body">
+              <div class="update-feat-tag">🌍 Global · Featured Update</div>
+              <div class="update-feat-title lora">ABSS joins UNESCO's 2025 World Culture Forum in Paris</div>
+              <div class="update-feat-desc">A landmark moment — ABSS presented the Cultural Olympiad model to 94 nations as a scalable template for cultural exchange.</div>
+            </div>
+            <div class="update-feat-footer">
+              <a class="update-read-more" href="#">Read Full Story →</a>
+              <span class="update-date-label">📅 Jun 10, 2025</span>
+            </div>
+          </div>
+          <div class="update-feat-card sr" style="transition-delay:.12s">
+            <div class="update-feat-img">
+              <img src="https://picsum.photos/seed/3020/700/330" alt="Advisory Board" onerror="this.style.display='none'" />
+            </div>
+            <div class="update-feat-body">
+              <div class="update-feat-tag">🏆 Awards · Featured Update</div>
+              <div class="update-feat-title lora">Padma Shri Awardee joins ABSS Global Advisory Board</div>
+              <div class="update-feat-desc">The celebrated classical vocalist has formally joined as an advisory patron, lending immense credibility to upcoming programmes.</div>
+            </div>
+            <div class="update-feat-footer">
+              <a class="update-read-more" href="#">Read Full Story →</a>
+              <span class="update-date-label">📅 May 28, 2025</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SPONSORS ══ -->
+  <div class="sponsors-section">
+    <div class="sponsors-inner">
+      <div class="sponsors-hdr sr">
+        <div class="tag tag-green" style="justify-content:center;margin-bottom:11px;">Our Partners</div>
+        <h2 class="section-h2 lora">Institutions That <em>Back Our Vision</em></h2>
+        <p class="sponsors-sub">Proudly supported by government bodies, global organisations, and India's leading institutions in culture, media, and finance.</p>
+      </div>
+
+      <div class="sponsors-tiers">
+        <!-- Principal -->
+        <div class="sr" style="transition-delay:.00s">
+          <div class="sponsors-tier-label">🥇 Principal Sponsors</div>
+          <div class="sponsors-row">
+            <div class="sponsor-card gold">
+              <div class="sponsor-logo-placeholder">
+                <div class="sponsor-logo-icon s-gold">🏛️</div>
+                <div class="sponsor-name">Ministry of Culture</div>
+                <div class="sponsor-type">Govt of India</div>
+              </div>
+            </div>
+            <div class="sponsor-card gold">
+              <div class="sponsor-logo-placeholder">
+                <div class="sponsor-logo-icon s-gold">🌐</div>
+                <div class="sponsor-name">UNESCO</div>
+                <div class="sponsor-type">UN Partner</div>
+              </div>
+            </div>
+            <div class="sponsor-card gold">
+              <div class="sponsor-logo-placeholder">
+                <div class="sponsor-logo-icon s-gold">✈️</div>
+                <div class="sponsor-name">Air India</div>
+                <div class="sponsor-type">Official Carrier</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Supporting -->
+        <div class="sr" style="transition-delay:.15s">
+          <div class="sponsors-tier-label">🤝 Supporting Partners</div>
+          <div class="sponsors-row">
+            <div class="sponsor-card">
+              <div class="sponsor-logo-placeholder">
+                <div class="sponsor-logo-icon s-green">🏦</div>
+                <div class="sponsor-name">HDFC Bank</div>
+                <div class="sponsor-type">Banking Partner</div>
+              </div>
+            </div>
+            <div class="sponsor-card">
+              <div class="sponsor-logo-placeholder">
+                <div class="sponsor-logo-icon s-green">📺</div>
+                <div class="sponsor-name">Doordarshan</div>
+                <div class="sponsor-type">Broadcast Partner</div>
+              </div>
+            </div>
+            <div class="sponsor-card">
+              <div class="sponsor-logo-placeholder">
+                <div class="sponsor-logo-icon s-green">📰</div>
+                <div class="sponsor-name">Times of India</div>
+                <div class="sponsor-type">Media Partner</div>
+              </div>
+            </div>
+            <div class="sponsor-card">
+              <div class="sponsor-logo-placeholder">
+                <div class="sponsor-logo-icon s-green">💼</div>
+                <div class="sponsor-name">FICCI</div>
+                <div class="sponsor-type">Industry Partner</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Knowledge -->
+        <div class="sr" style="transition-delay:.30s">
+          <div class="sponsors-tier-label">🎓 Knowledge Partners</div>
+          <div class="sponsors-row">
+            <div class="sponsor-card">
+              <div class="sponsor-logo-placeholder">
+                <div class="sponsor-logo-icon s-green">🎓</div>
+                <div class="sponsor-name">IIT Bombay</div>
+                <div class="sponsor-type">Academic Partner</div>
+              </div>
+            </div>
+            <div class="sponsor-card">
+              <div class="sponsor-logo-placeholder">
+                <div class="sponsor-logo-icon s-green">📚</div>
+                <div class="sponsor-name">Sangeet Natak Akademi</div>
+                <div class="sponsor-type">Heritage Partner</div>
+              </div>
+            </div>
+            <div class="sponsor-card">
+              <div class="sponsor-logo-placeholder">
+                <div class="sponsor-logo-icon s-green">🌿</div>
+                <div class="sponsor-name">ICCR</div>
+                <div class="sponsor-type">Cultural Outreach</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Brand -->
+          <div>
+            <div class="footer-brand-row">
+              <div class="nav-logo-mark" style="width:38px;height:38px;font-size:16px;border-radius:8px;">अ</div>
+              <div>
+                <div class="footer-about-name">ABSS India</div>
+                <div class="footer-about-sub">Cultural Olympiad</div>
+              </div>
+            </div>
+            <p class="footer-about-desc">Akhil Bharatiya Sanskrutik Sangh — a UNESCO recognised body dedicated to preserving and promoting India's living cultural heritage across six continents since 1987.</p>
+            <div class="footer-socials">
+              <a class="f-social" href="#">𝕏</a>
+              <a class="f-social" href="#">f</a>
+              <a class="f-social" href="#">in</a>
+              <a class="f-social" href="#">▶</a>
+              <a class="f-social" href="#">📷</a>
+            </div>
+          </div>
+          <!-- Quick Links -->
+          <div>
+            <div class="footer-col-hdr">Quick Links</div>
+            <ul class="footer-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About ABSS</a></li>
+              <li><a href="#">COPA 2025</a></li>
+              <li><a href="#">NATS Registration</a></li>
+              <li><a href="#">Global Council</a></li>
+              <li><a href="#">Gallery</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
+          </div>
+          <!-- Important Updates -->
+          <div>
+            <div class="footer-col-hdr">Important Updates</div>
+            <ul class="footer-links">
+              <li><a href="#">COPA 2025 Dates Announced</a></li>
+              <li><a href="#">NATS Applications Open</a></li>
+              <li><a href="#">New Council Members</a></li>
+              <li><a href="#">Annual Report 2024</a></li>
+              <li><a href="#">Press Releases</a></li>
+              <li><a href="#">UNESCO Bulletin</a></li>
+            </ul>
+          </div>
+          <!-- Contact -->
+          <div>
+            <div class="footer-col-hdr">Contact Information</div>
+            <div class="footer-contact-item">
+              <span class="footer-contact-icon">📍</span>
+              <span>ABSS Head Office, Cultural Complex, Bandra West, Mumbai — 400 050</span>
+            </div>
+            <div class="footer-contact-item">
+              <span class="footer-contact-icon">📞</span>
+              <span>+91 22 2640 XXXX</span>
+            </div>
+            <div class="footer-contact-item">
+              <span class="footer-contact-icon">✉️</span>
+              <span>info@abssindia.org</span>
+            </div>
+            <div class="footer-contact-item">
+              <span class="footer-contact-icon">🌐</span>
+              <span>www.abssindia.org</span>
+            </div>
+            <div class="backup-notice">
+              <span class="backup-notice-icon">🔄</span>
+              <div class="backup-notice-text">
+                <strong>Site Backup in Progress</strong><br>
+                Content migration underway. Some gallery sections and older event archives are being restored. Thank you for your patience.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <div class="footer-copy">© 2025 <span>ABSS India</span>. All rights reserved. · UNESCO Partner Body · Ministry of Culture, Bharat</div>
+        <div class="footer-legal-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Sitemap</a>
+          <button class="footer-member-btn">Member Login →</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /* ── NAV SCROLL ELEVATION ── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('elevated', window.scrollY > 30);
+    });
+
+    /* ── MOBILE MENU ── */
+    function toggleMenu() {
+      const links = document.querySelector('.nav-links');
+      if (!links) return;
+      const isOpen = links.style.display === 'flex';
+      links.style.cssText = isOpen
+        ? ''
+        : 'display:flex;flex-direction:column;position:fixed;top:72px;left:0;right:0;background:rgba(255,255,255,0.98);padding:20px 24px;gap:4px;border-bottom:1px solid #EDE9E2;z-index:199;backdrop-filter:blur(18px);';
+    }
+
+    /* ── SCROLL REVEAL ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.sr').forEach(el => observer.observe(el));
+
+    /* ── COUNT-UP ANIMATION ── */
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target, 10);
+      const suffix = el.dataset.suffix || '';
+      const steps  = 60;
+      const dur    = 2000;
+      let i = 0;
+      const interval = setInterval(() => {
+        i++;
+        const val = Math.round((target * i) / steps);
+        el.textContent = val.toLocaleString('en-IN') + suffix;
+        if (i >= steps) clearInterval(interval);
+      }, dur / steps);
+    }
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !e.target.dataset.counted) {
+          e.target.dataset.counted = '1';
+          animateCounter(e.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
+  </script>
+</body>
+</html>
